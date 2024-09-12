@@ -21,16 +21,25 @@
       <p class="error"><%= error %></p>
       <% } else if (weather) { %>
       <div class="card">
-  
+        <!-- Fahrenheit Temperature -->
         <p>
           <i class="fas fa-thermometer-half"></i>
           <%=weather.main.temp%>&deg;F
         </p>
+        
+        <!-- Celsius Conversion -->
+        <p>
+          <i class="fas fa-thermometer-half"></i>
+          <%= ((weather.main.temp - 32) * (5/9)).toFixed(2) %>&deg;C
+        </p>
+        
+        <!-- Weather Condition -->
         <p>
           <i class="fas fa-cloud"></i>
           <%=weather.weather[0].main%>
         </p>
 
+        <!-- Location -->
         <p>
           <i class="fas fa-map-marker-alt"></i>
           <%=weather.name%>, <%=weather.sys.country%>
@@ -38,6 +47,7 @@
       </div>
       <% } %>
     </div>
+
     <div class="social-links">
         <a href="https://linkedin.com/in/muhammedpatel007" target="_blank" class="social-link">
           <i class="fab fa-linkedin"></i>
